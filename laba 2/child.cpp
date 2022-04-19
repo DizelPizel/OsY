@@ -6,15 +6,13 @@
 
 int main(void){
     std::string tmp;
-    int i = 0;
-    while(std::getline(std::cin,tmp)){
+    while(std::getline(std::cin,tmp)){ // построчное считывание
         float delimoe;
         int delitel;
-        std::stringstream ss(tmp);
-        ss >> delimoe;
-        i++;
-        while (ss >> delitel) {
-            if (!delitel) {
+        std::stringstream ss(tmp); // превращение строки в поток
+        ss >> delimoe; // считывание первого числа
+        while (ss >> delitel) { //считывание последующих чисел
+            if (delitel == 0) {
                 return -1;
             }
             delimoe /= delitel;
