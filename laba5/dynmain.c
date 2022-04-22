@@ -11,12 +11,12 @@ int curr = 1;
 
 void change()
 {
-    dlclose(my_lib);
-    if (curr == 1)
+    dlclose(my_lib);// отсоединение старой библиотеки 
+    if (curr == 1) // проверка библиотеки
     {
-        my_lib = dlopen(name_sec, RTLD_LAZY);
+        my_lib = dlopen(name_sec, RTLD_LAZY);// открываем библиотеку в ленивом режиме(отложенно на потом)
         curr++;
-        Square = dlsym(my_lib, "Square");
+        Square = dlsym(my_lib, "Square");// подгружаем библиотеки
         Derivative = dlsym(my_lib, "Derivative");
         printf("second lib was chosen\n");
     }
